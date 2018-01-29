@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.avaje.ebean.validation.factory.EmailValidatorFactory;
 import com.cypherx.xauth.xAuth;
 import com.cypherx.xauth.xAuthLog;
 import com.cypherx.xauth.xAuthPlayer;
@@ -57,9 +56,6 @@ public class AuthSQL extends Auth {
 			return false;
 		} else if (!isValidPass(pass)) {
 			response = "register.error.password";
-			return false;
-		} else if (!isValidEmail(email)) {
-			response = "register.error.email";
 			return false;
 		}
 
@@ -199,10 +195,4 @@ public class AuthSQL extends Auth {
 		return matcher.matches();
 	}
 
-	private boolean isValidEmail(String email) {
-		if (!plugin.getConfig().getBoolean("registration.validate-email"))
-			return true;
-
-		return EmailValidatorFactory.EMAIL.isValid(email);
-	}
 }
