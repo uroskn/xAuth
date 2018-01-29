@@ -8,38 +8,21 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-  
+
   <repositories>
-    <repository>
-      <id>bukkit-repo</id>
-      <url>http://repo.bukkit.org/content/groups/public</url>
+     <repository>
+        <id>spigot-repo</id>
+        <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
     </repository>
-    <!--<repository>
-      <id>spout-repo</id>
-      <url>http://nexus.spout.org/content/groups/public</url>
-    </repository>
-    <repository>
-      <id>pex-repo</id>
-      <url>http://repo.tehkode.ru/repository/bukkit-plugins</url>
-    </repository>-->
   </repositories>
 
   <dependencies>
-    <dependency>
-       <groupId>org.bukkit</groupId>
-        <artifactId>bukkit</artifactId>
-        <version>1.2.5-R1.2</version>
+     <dependency>
+            <groupId>org.bukkit</groupId>
+            <artifactId>bukkit</artifactId>
+            <version>1.12.1-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
     </dependency>
-    <!--<dependency>
-    	<groupId>ru.tehkode</groupId>
-    	<artifactId>PermissionsEx</artifactId>
-    	<version>1.20-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-    	<groupId>de.bananaco</groupId>
-    	<artifactId>bPermissions</artifactId>
-    	<version>dev-SNAPSHOT</version>
-    </dependency>-->
   </dependencies>
 
   <build>
@@ -63,7 +46,7 @@
         </includes>
       </resource>
     </resources>
-        
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

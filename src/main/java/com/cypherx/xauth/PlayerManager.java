@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -77,7 +78,7 @@ public class PlayerManager {
 		}
 	}
 
-	public void handleReload(Player[] players) {
+	public void handleReload(Collection<? extends Player> players) {
 		for (Player p : players) {
 			xAuthPlayer xp = getPlayer(p.getName());
 			boolean mustLogin = false;

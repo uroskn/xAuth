@@ -2,6 +2,7 @@ package com.cypherx.xauth;
 
 import java.io.File;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
@@ -15,7 +16,6 @@ import com.cypherx.xauth.listeners.*;
 import com.cypherx.xauth.password.PasswordHandler;
 //import com.cypherx.xauth.plugins.xPermissions;
 import com.cypherx.xauth.strike.StrikeManager;
-import com.cypherx.xauth.updater.Updater;
 
 public class xAuth extends JavaPlugin {
 	private DatabaseController dbCtrl;
@@ -51,12 +51,6 @@ public class xAuth extends JavaPlugin {
 			xAuthLog.info("Auto-disabling, server is running in online-mode");
 			getServer().getPluginManager().disablePlugin(this);
 			return;
-		}
-
-		if (getConfig().getBoolean("main.check-for-updates")) {
-			Updater updater = new Updater(getDescription().getVersion());
-			if (updater.isUpdateAvailable())
-				updater.printMessage();
 		}
 
 		File h2File = new File("lib", "h2-" + h2Version + ".jar");
@@ -98,8 +92,8 @@ public class xAuth extends JavaPlugin {
 		locMngr 	= new LocationManager(this);
 		strkMngr	= new StrikeManager(this);
 
-		Player[] players = getServer().getOnlinePlayers();
-		if (players.length > 0)
+		Collection<? extends Player> players = getServer().getOnlinePlayers();
+		if (!players.isEmpty())
 			plyrMngr.handleReload(players);
 
 		// Initialize listeners

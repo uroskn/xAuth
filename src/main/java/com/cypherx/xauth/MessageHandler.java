@@ -3,6 +3,7 @@ package com.cypherx.xauth;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -31,7 +32,7 @@ public class MessageHandler {
 
 		InputStream defConfigStream = plugin.getResource(fileName);
 		if (defConfigStream != null) {
-			YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
+			YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(new InputStreamReader(defConfigStream));
 			config.setDefaults(defConfig);
 		}
 	}
