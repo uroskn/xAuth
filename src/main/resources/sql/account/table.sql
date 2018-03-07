@@ -8,6 +8,6 @@ CREATE TABLE `{TABLE}` (
 	`registerip` CHAR(45) NULL,
 	`lastlogindate` DATETIME NULL,
 	`lastloginip` CHAR(45) NULL,
-	`active` TINYINT(1) UNSIGNED NOT NULL DEFAULT 0,
+	`activate_key` VARCHAR(64) UNSIGNED NOT NULL DEFAULT 0,
 	PRIMARY KEY (`id`)
 );
